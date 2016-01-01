@@ -46,7 +46,7 @@ function resetInterval() {
 
 function getNextSequence() {
     var sequenceNum = sequencePattern.length;
-    if(sequenceNum < 20) {
+    if(sequenceNum < 2) {
         speed = sequenceSpeed[0];
         if(sequenceNum >= 4 && sequenceNum < 8) {
             speed = sequenceSpeed[1];
@@ -64,6 +64,17 @@ function getNextSequence() {
         }
         sequencePattern.push(randomPattern());
         displaySequence(count);
+    }
+    else {
+        var i = 0;
+        var interval = setInterval(function(){
+            $('#count').html("WIN");
+            i++;
+            if (i === 2) {
+                clearInterval(interval);
+                init();
+            }
+        },2000);
     }
 }
 
@@ -119,7 +130,7 @@ function showCurrentPattern(num, time) {
     }, time);
 }
 
-$('.pattern').click(function() {
+$('.game-button').click(function() {
     if(isPlayerTurn === false) {
         console.log("Please wait for sequence");
     } 
