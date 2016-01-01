@@ -12,25 +12,36 @@
 </head>
 <body>
   <h1 class="text-center header">Simon Game</h1>
-  <div class="container">
-    <div id="circle-bg"></div>
-    <div id="item0" class="pattern red-quarter-circle">
-      <audio src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" id="sound0" preload="auto"></audio>
+  <div class="circle-wrap">
+    <div class="top">
+      <div id="item0" class="game-button red-quarter-circle left">
+        <audio src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" id="sound0" preload="auto"></audio>
+      </div>
+      <div id="item1" class="game-button right green-quarter-circle ">
+        <audio src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" id="sound1" preload="auto"></audio>
+      </div>
     </div>
-    <div id="item1" class="pattern green-quarter-circle">
-      <audio src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" id="sound1" preload="auto"></audio>
-    </div>
-    <div id="item2" class="pattern yellow-quarter-circle">
-      <audio src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" id="sound2" preload="auto"></audio>
-    </div>
-    <div id="item3" class="pattern blue-quarter-circle">
-      <audio src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" id="sound3" preload="auto"></audio>
+    <div class="bottom">
+      <div id="item2" class="game-button yellow-quarter-circle left">
+        <audio src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" id="sound2" preload="auto"></audio>
+      </div>
+      <div id="item3" class="game-button blue-quarter-circle right">
+        <audio src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" id="sound3" preload="auto"></audio>
+      </div>
     </div>
     <div id="button-panel">
-      <div id="count-display"><div id="count">- -</div></div>
-      <div><button id="start-button" onclick="init()">Start</button></div>
-      <div id="strict-indicator" class="default-strict-indicator"></div>
-      <div><button id="strict-button" onclick="toggleStrictMode()">Strict</button></div>
+        <div id="count-display">
+          <div id="count">- -</div>
+        </div>
+        <button id="start-button" onclick="init()">Start</button>
+        <div class="row">
+          <div class="col-xs-7">
+            <button id="strict-button" onclick="toggleStrictMode()">Strict</button>
+          </div>
+          <div class="col-xs-5">
+            <div id="strict-indicator" class="default-strict-indicator"></div>
+          </div>
+        </div>
     </div>
   </div>
   <script src="scripts/common.js"></script>
