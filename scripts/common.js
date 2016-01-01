@@ -46,7 +46,7 @@ function resetInterval() {
 
 function getNextSequence() {
     var sequenceNum = sequencePattern.length;
-    if(sequenceNum < 2) {
+    if(sequenceNum < 20) {
         speed = sequenceSpeed[0];
         if(sequenceNum >= 4 && sequenceNum < 8) {
             speed = sequenceSpeed[1];
