@@ -21,6 +21,16 @@ function init() {
     getNextSequence();
 }
 
+function toggleStrictMode() {
+    var indicator = $('#strict-indicator');
+    if(indicator.hasClass('green-bg')) {
+        indicator.removeClass('green-bg');
+    }
+    else {
+        indicator.addClass('green-bg');
+    }
+}
+
 function removeLight() {
     $('#item0').removeClass('red-bg');
     $('#item1').removeClass('green-bg');
@@ -127,19 +137,30 @@ $('.pattern').click(function() {
             }
         }
         else {
-            isPlayerTurn = false;
-            var currentCount = $('#count').html();
             var i = 0;
-            $('#count').html("!!");
-            playerTurnInterval = setInterval(function () {
-                i++;
-                if (i === 2) {
-                    clearInterval(playerTurnInterval);
-                    $('#count').html(currentCount);
-                    displaySequence();
-                    playerTurn = 0;
-                }
-            }, 1000);
+            if($('#strict-indicator').hasClass('green-bg')) {
+                init();
+                $('#count').html("X");
+                var interval = setInterval(function(){
+                    i++;
+                    if (i === 2) {
+                        clearInterval(interval);
+                    }
+                },1000);
+            } else {
+                isPlayerTurn = false;
+                var currentCount = $('#count').html();
+                $('#count').html("! !");
+                playerTurnInterval = setInterval(function () {
+                    i++;
+                    if (i === 2) {
+                        clearInterval(playerTurnInterval);
+                        $('#count').html(currentCount);
+                        displaySequence();
+                        playerTurn = 0;
+                    }
+                }, 1000);
+            }
         }
     }
 });
